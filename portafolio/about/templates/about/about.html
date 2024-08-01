@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Sobre mi {%endblock%}
+
+{% block image-header %}about{% endblock %}
+
+{% block title-header %} 
+<div>
+    <h1 class="display-4 fw-bold">Luis Gonzales</h1>
+</div>
+<div>
+    <h3 class="fs-2">Desarrollador Web</h3>
+</div>
+{% endblock %}
+
+{% block content %} 
+
+{% load static %}
+
+<div class="row d-flex">
+    <div class="col-4 offset-md-auto">
+        <img class="img-fluid img-thumbnail img-circle img-perfil" src={% static 'core/img/image.png' %} alt="">
+    </div>
+    <div class="col-6">
+        <p>
+            Nací y crecí en Aucayacu, Perú, una ciudad vibrante y llena de cultura hasta los 14 años, despues por necesidad tube que salir de mi familia a buscar trabajo ahy es donde empeze a estudiar mi secundaria en la Institucion Educativa Emblematico Gomez Arias Davila hasta el 4to año de secundaria, despues volvi a mi ciudad de Aucayacu a terminar mi ultimo año de estudio. Desde pequeño, siempre tuve una curiosidad innata por la tecnología y cómo funcionaban las cosas. Recuerdo haber desarmado mi primera computadora a los 10 años, solo para ver qué había dentro y cómo funcionaba.
+        </p>
+        <p>
+            Mi pasión por la tecnología me llevó a estudiar Desarrollo de Sistemas de Informacion en el Instituto de Educacion Superior Publico Padre Abad, donde desarrollé mis habilidades en programación y descubrí mi amor por el desarrollo web. Durante mis años academicos, me permitió adquirir experiencia práctica y colaborar con otros entusiastas de la programacion.
+        </p>
+        <p>
+            Hoy, como desarrollador web profesional, me esfuerzo por crear soluciones que no solo cumplan con las expectativas de mis clientes, sino que también hagan una diferencia en sus negocios. Estoy emocionado por lo que el futuro tiene reservado y siempre estoy buscando nuevas oportunidades para crecer y mejorar en mi carrera.
+        </p>
+    </div>
+</div> 
+
+<div class="row d-flex pt-5">
+    <div class="col-12">
+        <h2 class="fw-bold">Formación Académica</h2>
+        {% for course in courses %}
+        <h3>{{ course.title }}</h3>
+        <p><strong>Título obtenido:</strong> {{ course.degree_title }}</p>
+        <p><strong>Descripción:</strong> {{ course.description }}</p>
+        <br>
+        <hr>
+        {% endfor %}
+        
+
+        <hr>
+        <br>
+        <h2 class="fw-bold">Conocimientos</h2>
+        <section class="skills" id="skills">
+            <div class="skills__container" id="skills">
+                {% for skill in skills %}
+                <div class="card__skills">
+                    <div class="skill__thumbnail">
+                        <img class="skill__logo" src= {{ skill.image.url }} alt="html5">
+                    </div>
+
+                    <div class="skill__texto">
+                        <p class="skill__titulo">{{ skill.title }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </section>
+    </section>
+    </div>
+
+</div>
+
+{% endblock %}
